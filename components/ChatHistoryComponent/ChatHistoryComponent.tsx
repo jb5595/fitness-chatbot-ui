@@ -3,22 +3,23 @@
 import { useEffect, useState } from "react";
 
 interface chatHistoryComponentProps {
-  id: string
+  gymPhoneNumber: string;
+  userPhoneNumber: string;
 }
 
-export default function ChatHistoryComponent({id}: chatHistoryComponentProps) {
+export default function ChatHistoryComponent({gymPhoneNumber, userPhoneNumber}: chatHistoryComponentProps) {
   const [chatHistory, setChatHistory] = useState("");
   let chatHistorySections: string[][] = []
   useEffect(() => {
-    if(id !== undefined){
-      fetch(`http://localhost:3000/gym/${id}/chatHistory`)
+    if(gymPhoneNumber !== undefined && userPhoneNumber !== undefined ){
+      fetch(`http://localhost:3000/gym/${gymPhoneNumber}/chats/${userPhoneNumber}`)
       .then((res) => res.json())
       .then((data) => {
         setChatHistory(data)
       })
     }
 
-  }, [id])
+  }, [gymPhoneNumber, userPhoneNumber])
 
   const formatSection = function(chatHistory: string){
     const historyArray = chatHistory.split("\n")

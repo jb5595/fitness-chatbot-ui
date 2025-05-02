@@ -12,7 +12,7 @@ export default function ChatHistoryComponent({gymPhoneNumber, userPhoneNumber}: 
   let chatHistorySections: string[][] = []
   useEffect(() => {
     if(gymPhoneNumber !== undefined && userPhoneNumber !== undefined ){
-      fetch(`http://localhost:3000/gym/${gymPhoneNumber}/chats/${userPhoneNumber}`)
+      fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/chat-history/gym/${gymPhoneNumber}/chats/${userPhoneNumber}`)
       .then((res) => res.json())
       .then((data) => {
         setChatHistory(data)

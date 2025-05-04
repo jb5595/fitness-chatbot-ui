@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 
-export default function userList(){
+export default function UserList(){
     const router = useRouter()
     const gymPhoneNumber = router.query.id
     const [userList, setUserList] = useState([]);

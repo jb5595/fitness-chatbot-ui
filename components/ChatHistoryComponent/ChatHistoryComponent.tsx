@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 interface chatHistoryComponentProps {
@@ -9,7 +10,7 @@ interface chatHistoryComponentProps {
 
 export default function ChatHistoryComponent({gymPhoneNumber, userPhoneNumber}: chatHistoryComponentProps) {
   const [chatHistory, setChatHistory] = useState("");
-  let chatHistorySections: string[][] = []
+  const chatHistorySections: string[][] = []
   useEffect(() => {
     if(gymPhoneNumber !== undefined && userPhoneNumber !== undefined ){
       fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/chat-history/gym/${gymPhoneNumber}/chats/${userPhoneNumber}`)
@@ -45,12 +46,12 @@ export default function ChatHistoryComponent({gymPhoneNumber, userPhoneNumber}: 
           <p className="bg-blue-500 text-white rounded-lg py-2 px-4 inline-block">{section[0]}</p>
         </div>
         <div className="float-right">
-            <img className="w-8 h-8 rounded-full" src="/user.avif" alt="chatbot avatar"></img>
+            <Image className="w-8 h-8 rounded-full" src="/user.avif" alt="chatbot avatar"></Image>
             <span className="block text-gray-500">User</span>
         </div>
         <div className="mb-2">
           <p className="bg-gray-200 text-gray-700 rounded-lg py-2 px-4 inline-block">{section[1]}</p>
-          <img className="w-8 h-8 rounded-full" src="/chatbot.avif" alt="chatbot avatar"></img>
+          <Image className="w-8 h-8 rounded-full" src="/chatbot.avif" alt="chatbot avatar"></Image>
           <span className="inline-block text-gray-500">PunchLine</span>
         </div>
       </span>

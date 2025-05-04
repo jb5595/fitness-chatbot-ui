@@ -1,7 +1,7 @@
 import Layout from '../components/Layout'
-import "../app/globals.css";
+import { AppProps } from 'next/app';
  
-export default function MyApp({ Component, pageProps }: any) {
+export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Layout>
       <Component {...pageProps} />

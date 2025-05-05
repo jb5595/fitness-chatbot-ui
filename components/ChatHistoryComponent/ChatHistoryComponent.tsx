@@ -46,12 +46,12 @@ export default function ChatHistoryComponent({gymPhoneNumber, userPhoneNumber}: 
           <p className="bg-blue-500 text-white rounded-lg py-2 px-4 inline-block">{section[0]}</p>
         </div>
         <div className="float-right">
-            <Image className="w-8 h-8 rounded-full" src="/user.avif" alt="chatbot avatar"></Image>
+            <Image className="w-8 h-8 rounded-full" src="/user.avif" alt="chatbot avatar" width={32} height={32}></Image>
             <span className="block text-gray-500">User</span>
         </div>
         <div className="mb-2">
           <p className="bg-gray-200 text-gray-700 rounded-lg py-2 px-4 inline-block">{section[1]}</p>
-          <Image className="w-8 h-8 rounded-full" src="/chatbot.avif" alt="chatbot avatar"></Image>
+          <Image className="w-8 h-8 rounded-full" src="/chatbot.avif" alt="chatbot avatar" width={32} height={32}></Image>
           <span className="inline-block text-gray-500">PunchLine</span>
         </div>
       </span>

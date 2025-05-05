@@ -38,3 +38,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ## Setup 
 Add NEXT_PUBLIC_BASE_API_URL="http://localhost:3000" to your .env.local. You can test the user list page at '/gym/:gymPhoneNumber'. 
+
+## UI-Library
+Documentation for the ui-library https://ui.shadcn.com/docs/components/accordion

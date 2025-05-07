@@ -1,6 +1,6 @@
 export interface Chat {
-    userId: string;
-    userMessage: string;
+    clientId: string;
+    clientMessage: string;
     assistantResponse: string;
     timestamp: number;
 }

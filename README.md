@@ -37,4 +37,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 
 ## Setup 
-Add NEXT_PUBLIC_BASE_API_URL="http://localhost:3000" to your .env.local. You can test the user list page at '/gym/:gymPhoneNumber'. 
+Add NEXT_PUBLIC_BASE_API_URL="http://localhost:3000" to your .env.local. You can test the client list page at '/gym/:gymPhoneNumber'. 

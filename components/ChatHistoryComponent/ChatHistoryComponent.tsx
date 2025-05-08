@@ -5,22 +5,22 @@ import { useEffect, useState } from "react";
 
 interface chatHistoryComponentProps {
   gymPhoneNumber: string;
-  userPhoneNumber: string;
+  clientPhoneNumber: string;
 }
 
-export default function ChatHistoryComponent({gymPhoneNumber, userPhoneNumber}: chatHistoryComponentProps) {
+export default function ChatHistoryComponent({gymPhoneNumber,  clientPhoneNumber}: chatHistoryComponentProps) {
   const [chatHistory, setChatHistory] = useState("");
   const chatHistorySections: string[][] = []
   useEffect(() => {
-    if(gymPhoneNumber !== undefined && userPhoneNumber !== undefined ){
-      fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/chat-history/gym/${gymPhoneNumber}/chats/${userPhoneNumber}`)
+    if(gymPhoneNumber !== undefined && clientPhoneNumber !== undefined ){
+      fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/chat-history/gym/${gymPhoneNumber}/chats/${clientPhoneNumber}`)
       .then((res) => res.json())
       .then((data) => {
         setChatHistory(data)
       })
     }
 
-  }, [gymPhoneNumber, userPhoneNumber])
+  }, [gymPhoneNumber, clientPhoneNumber])
 
   const formatSection = function(chatHistory: string){
     const historyArray = chatHistory.split("\n")

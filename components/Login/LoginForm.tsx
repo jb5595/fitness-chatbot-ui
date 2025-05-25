@@ -12,6 +12,7 @@ import { Form } from "../ui/form"
 import router from "next/router"
 import { useLogin } from "@/hooks/useAuth"
 import { FormElement } from "../ui/formElement"
+import Link from "next/link"
 
 export function LoginForm({
   className,
@@ -83,9 +84,9 @@ export function LoginForm({
             </div>
             <div className="mt-4 text-center text-sm">
               Don&apos;t have an account?{" "}
-              <a href="/sign-up" className="underline underline-offset-4">
+              <Link href="/sign-up" className="underline underline-offset-4">
                 Sign up
-              </a>
+              </Link>
             </div>
           </Form>
         </CardContent>

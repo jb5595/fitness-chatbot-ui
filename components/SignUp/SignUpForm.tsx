@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Form } from "../ui/form"
-import router from "next/router"
+
 import {  useSignUp } from "@/hooks/useAuth"
 import { FormElement } from "../ui/formElement"
 

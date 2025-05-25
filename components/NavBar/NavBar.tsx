@@ -1,6 +1,32 @@
+import { useCurrentUser } from "@/context/currentUserContext";
+import { useLogout } from "@/hooks/useAuth";
+
 import Link from "next/link";
 
+const NavbarLink = ({ href, children }: { href: string, children: React.ReactNode }) => {
+    return (
+        <Link href={href} className="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent" aria-current="page">
+            {children}
+        </Link>
+    )
+}
+
+const NavbarButton = ({ onClick, children }: { onClick: () => void, children: React.ReactNode }) => {
+    return (
+        <button 
+            onClick={onClick} 
+            className="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent"
+        >
+            {children}
+        </button>
+    )
+}
+
 export default function Navbar() {
+    const { currentUser } = useCurrentUser()
+    const {logout} = useLogout()
+
+
     return (
       <nav className="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -17,7 +43,14 @@ export default function Navbar() {
         <div className="hidden w-full md:block md:w-auto" id="navbar-solid-bg">
           <ul className="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
             <li>
-              <Link href="/" className="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent" aria-current="page">Home</Link>
+              {currentUser ? (
+                <NavbarButton onClick={() => logout()}>Sign Out</NavbarButton>
+              ) : (
+                <>
+                  <NavbarLink href="/sign-in">Sign In</NavbarLink>
+                  <NavbarLink href="/sign-up">Sign Up</NavbarLink>
+                </>
+              )}
             </li>
           </ul>
         </div>

@@ -1,11 +1,15 @@
 import Layout from '../components/Layout'
 import { AppProps } from 'next/app';
 import "../app/globals.css";
+import { CurrentUserProvider } from '@/context/currentUserContext';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <CurrentUserProvider>
+      <Layout>
+          <Component {...pageProps} />
+      </Layout>
+    </CurrentUserProvider>
+
   )
 }
